@@ -1,379 +1,1030 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinanth B S - Backend Software Engineer</title>
+    <link href="assets/img/5.png" rel="icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <title>Vinanth portfolio</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-teal: #1f2937;
+            --dark-text: #1f2937;
+            --light-bg: #f9fafb;
+            --white: #ffffff;
+            --gray-text: #6b7280;
+            --border-color: #e5e7eb;
+        }
 
-  <link href="assets/img/5.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            overflow-x: hidden;
+        }
 
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
 
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
 
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        .logo span {
+            color: var(--secondary-teal);
+        }
 
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-  <link href="assets/css/style.css" rel="stylesheet">
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-text);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
 
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-blue);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+          .hero {
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-bg) 100%);
+            padding: 3rem 2rem;
+        }
+ 
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+ 
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: var(--dark-text);
+            text-align: left;
+        }
+ 
+        .hero-content h1 .highlight {
+            color: var(--primary-blue);
+        }
+ 
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+ 
+        .hero-image {
+            text-align: center;
+        }
+ 
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 1rem;
+            box-shadow: 0 20px 40px rgba(30, 64, 175, 0.15);
+            object-fit: cover;
+            aspect-ratio: 1;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #1e3a8a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 4rem 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark-text);
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-blue);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .about-text p {
+            color: var(--gray-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-icon {
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-top: 2px;
+            min-width: 20px;
+        }
+
+        .info-text {
+            flex: 1;
+        }
+
+        .info-text strong {
+            display: block;
+            color: var(--dark-text);
+            margin-bottom: 0.25rem;
+        }
+
+        .info-text a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .info-text a:hover {
+            text-decoration: underline;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .stat-label {
+            color: var(--gray-text);
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: var(--light-bg);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            color: var(--gray-text);
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-teal);
+            font-weight: 700;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: var(--white);
+        }
+
+        .timeline {
+            margin-top: 3rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary-blue), var(--secondary-teal));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.75rem;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-blue);
+            border: 3px solid var(--white);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px var(--light-bg);
+        }
+
+        .timeline-header {
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark-text);
+        }
+
+        .timeline-meta {
+            color: var(--primary-blue);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .timeline-date {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .timeline-description {
+            color: var(--gray-text);
+            margin-top: 0.75rem;
+            line-height: 1.7;
+        }
+
+        .timeline-highlights {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .timeline-highlights li {
+            color: var(--gray-text);
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .timeline-highlights li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-teal);
+            font-weight: 700;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: var(--light-bg);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            padding: 2rem;
+            color: var(--white);
+        }
+
+        .project-header h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .project-content {
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .project-description {
+            color: var(--gray-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--light-bg);
+            color: var(--primary-blue);
+            padding: 0.4rem 0.8rem;
+            border-radius: 0.25rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--white);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 3rem auto 0;
+        }
+
+        .contact-content p {
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary-blue);
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-text);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            main {
+                margin-top: 140px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-
 <body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <a href="#home" class="logo">VINANTH<span> B </span><span>S</span></a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content fade-in">
+                    <h1>Hi, I'm <span class="highlight">Vinanth B S</span></h1>
+                    <p>Backend Software Engineer | Java & Spring Boot | Microservices Architecture</p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                        <a href="#projects" class="btn btn-secondary">View My Work</a>
+                    </div>
+                </div>
+                <div class="hero-image fade-in delay-1">
+                    <img src="https://vinanthbs.github.io/portfolio/assets/img/Profile1.png" alt="Vinanth B S" />
+                </div>
+            </div>
+        </section>
 
 
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-grid">
+                    <div class="about-text scroll-reveal">
+                        <h3>Backend-Focused Engineer</h3>
+                        <p>I'm a software engineer with a proven track record in designing and developing scalable backend systems. With hands-on experience in Java, Spring Boot, and microservices architecture, I've helped build solutions that power learning platforms, e-commerce systems, and management tools.</p>
+                        <p>I thrive in agile environments where I can collaborate with cross-functional teams to translate business requirements into robust technical solutions. My passion is creating systems that are not just functional, but efficient and maintainable.</p>
+                    </div>
+                    <div class="about-stats scroll-reveal delay-1">
+                        <div class="stat">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-label">Years of Experience</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Companies</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Major Projects</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">Learning Ahead</div>
+                        </div>
+                    </div>
+                </div>
 
+                <div style="margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                    <div class="info-item scroll-reveal">
+                        <div class="info-icon">📍</div>
+                        <div class="info-text">
+                            <strong>Location</strong>
+                            Bengaluru, India
+                        </div>
+                    </div>
+                    <div class="info-item scroll-reveal delay-1">
+                        <div class="info-icon">✉️</div>
+                        <div class="info-text">
+                            <strong>Email</strong>
+                            <a href="mailto:vinanthbs@gmail.com">vinanthbs@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="info-item scroll-reveal delay-2">
+                        <div class="info-icon">📱</div>
+                        <div class="info-text">
+                            <strong>Phone</strong>
+                            +91 94816-94552
+                        </div>
+                    </div>
+                    <div class="info-item scroll-reveal delay-3">
+                        <div class="info-icon">💼</div>
+                        <div class="info-text">
+                            <strong>LinkedIn</strong>
+                            <a href="https://www.linkedin.com/in/vinanthbs/" target="_blank">linkedin.com/in/vinanthbs/</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <header id="header">
-    <div class="d-flex flex-column">
+        <!-- Skills Section -->
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card scroll-reveal">
+                        <h3>Backend Development</h3>
+                        <ul class="skill-list">
+                            <li>Java (Core & Advanced)</li>
+                            <li>Spring Boot Framework</li>
+                            <li>Spring Data JPA</li>
+                            <li>Spring Security</li>
+                            <li>REST API Design</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card scroll-reveal delay-1">
+                        <h3>Architecture & Design</h3>
+                        <ul class="skill-list">
+                            <li>Microservices Architecture</li>
+                            <li>System Integration</li>
+                            <li>Database Design</li>
+                            <li>API-First Development</li>
+                            <li>Scalable Solutions</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card scroll-reveal delay-2">
+                        <h3>Database & Tools</h3>
+                        <ul class="skill-list">
+                            <li>PostgreSQL</li>
+                            <li>Maven</li>
+                            <li>Git & Version Control</li>
+                            <li>Liquibase Migrations</li>
+                            <li>Agile (Scrum/Kanban)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card scroll-reveal delay-3">
+                        <h3>Frontend Exposure</h3>
+                        <ul class="skill-list">
+                            <li>ReactJS</li>
+                            <li>Component Integration</li>
+                            <li>Frontend-Backend Sync</li>
+                            <li>Full SDLC Understanding</li>
+                            <li>Cross-Team Collaboration</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card scroll-reveal delay-1">
+                        <h3>Quality & Deployment</h3>
+                        <ul class="skill-list">
+                            <li>Testing & Debugging</li>
+                            <li>Performance Optimization</li>
+                            <li>Production Deployment</li>
+                            <li>Root Cause Analysis</li>
+                            <li>Issue Resolution</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card scroll-reveal delay-2">
+                        <h3>Additional Expertise</h3>
+                        <ul class="skill-list">
+                            <li>JWT Authentication</li>
+                            <li>OAuth2 Integration</li>
+                            <li>Email Services</li>
+                            <li>Zoho Tools</li>
+                            <li>QA Background</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <div class="profile">
-        <img src="assets/img/Profile1.png" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Vinanth Bogase</a></h1>
-        <div class="social-links mt-3 text-center">
-          <a href="https://twitter.com/bs_vinanth" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="https://www.facebook.com/vinanth.vinu.7" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="https://www.instagram.com/vinanth__/" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/vinanthbs/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <!-- Experience Section -->
+        <section id="experience" class="experience">
+            <div class="container">
+                <h2>Professional Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item scroll-reveal">
+                        <div class="timeline-header">
+                            <div class="timeline-title">Software Developer</div>
+                            <div class="timeline-meta">Agasthya Ed Tech</div>
+                            <div class="timeline-date">September 2024 – Present</div>
+                        </div>
+                        <div class="timeline-description">
+                            Currently leading backend development for an in-house Learning Management System using Spring Boot, with focus on scalable microservices architecture.
+                        </div>
+                        <ul class="timeline-highlights">
+                            <li>Designed and developed LMS backend with Spring Boot</li>
+                            <li>Built and integrated RESTful APIs for frontend-backend communication</li>
+                            <li>Collaborated with architects on microservices design</li>
+                            <li>Implemented workflow automation using Zoho tools</li>
+                            <li>Performance optimization and reliability testing</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item scroll-reveal delay-1">
+                        <div class="timeline-header">
+                            <div class="timeline-title">Java Developer</div>
+                            <div class="timeline-meta">Apprikart Digital Solutions</div>
+                            <div class="timeline-date">January 2022 – August 2024</div>
+                        </div>
+                        <div class="timeline-description">
+                            Contributed to backend development and system integration for an e-commerce platform while maintaining frontend-backend synchronization.
+                        </div>
+                        <ul class="timeline-highlights">
+                            <li>REST API design, testing, and validation</li>
+                            <li>Frontend component development and integration</li>
+                            <li>Application deployment and environment setup</li>
+                            <li>Client liaison (Hyundai) for business requirement translation</li>
+                            <li>Production issue diagnosis and resolution</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item scroll-reveal delay-2">
+                        <div class="timeline-header">
+                            <div class="timeline-title">Backend Developer</div>
+                            <div class="timeline-meta">Access6 Technologies</div>
+                            <div class="timeline-date">January 2020 – May 2020</div>
+                        </div>
+                        <div class="timeline-description">
+                            Developed backend modules for an Employee Management System with focus on security and system integration.
+                        </div>
+                        <ul class="timeline-highlights">
+                            <li>Backend module development using Java</li>
+                            <li>User authentication and role-based access control</li>
+                            <li>Database design and interactions</li>
+                            <li>Frontend integration and system component design</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item scroll-reveal delay-3">
+                        <div class="timeline-header">
+                            <div class="timeline-title">Site Engineer</div>
+                            <div class="timeline-meta">Sunseed Technologies [Kenya]</div>
+                            <div class="timeline-date">September 2020 – August 2021</div>
+                        </div>
+                        <div class="timeline-description">
+                            Led on-site execution with focus on project delivery and quality assurance in a dynamic international environment.
+                        </div>
+                        <ul class="timeline-highlights">
+                            <li>On-site project execution and coordination</li>
+                            <li>Cross-functional team management</li>
+                            <li>Quality and safety standards maintenance</li>
+                            <li>Stakeholder communication and problem-solving</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2>Key Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card scroll-reveal">
+                        <div class="project-header">
+                            <h3>Learning Management System</h3>
+                            <p>Current @ Agasthya Ed Tech</p>
+                        </div>
+                        <div class="project-content">
+                            <p class="project-description">A comprehensive LMS platform combining Spring Boot backend with ReactJS frontend for seamless student and educator experience.</p>
+                            <div class="project-tags">
+                                <span class="tag">Spring Boot</span>
+                                <span class="tag">REST APIs</span>
+                                <span class="tag">ReactJS</span>
+                                <span class="tag">Microservices</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card scroll-reveal delay-1">
+                        <div class="project-header">
+                            <h3>E-Commerce Platform</h3>
+                            <p>Apprikart Digital Solutions</p>
+                        </div>
+                        <div class="project-content">
+                            <p class="project-description">Full-stack e-commerce solution with robust backend handling high-volume transactions and inventory management.</p>
+                            <div class="project-tags">
+                                <span class="tag">Java</span>
+                                <span class="tag">Spring Framework</span>
+                                <span class="tag">PostgreSQL</span>
+                                <span class="tag">REST APIs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card scroll-reveal delay-2">
+                        <div class="project-header">
+                            <h3>Employee Management System</h3>
+                            <p>Access6 Technologies</p>
+                        </div>
+                        <div class="project-content">
+                            <p class="project-description">Enterprise EMS with authentication, role-based access control, and secure database management for organizational operations.</p>
+                            <div class="project-tags">
+                                <span class="tag">Java</span>
+                                <span class="tag">RBAC</span>
+                                <span class="tag">Authentication</span>
+                                <span class="tag">System Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Let's Connect</h2>
+                <div class="contact-content scroll-reveal">
+                    <p>I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
+                    <div class="contact-links">
+                        <a href="mailto:vinanthbs@gmail.com" class="contact-link">Email Me</a>
+                        <a href="https://www.linkedin.com/in/vinanthbs/" target="_blank" class="contact-link">LinkedIn</a>
+                        <a href="tel:+919481694552" class="contact-link">Call Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Vinanth B S. All rights reserved. Built with ❤️</p>
         </div>
-      </div>
+    </footer>
 
-      <nav id="navbar" class="nav-menu navbar">
-        <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  
-  <section id="hero"  class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container"  data-aos="fade-in">
-      <h1>Vinanth Bogase</h1>
-      <p>I'm <span class="typed"  data-typed-items="Q A Engineer, Developer, Geek"></span></p>
-    </div>
-  </section>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    updateActiveNav();
+                }
+            });
+        });
 
-  <main id="main">
+        // Update active navigation link on scroll
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
 
-    <section id="about" class="about">
-      <div class="container">
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
 
-        <div class="section-title">
-          <h2>About</h2>
-          <p>In my journey to expand my skills, I've eagerly delved into backend technologies, gaining practical expertise in their implementation. Among my technical strengths are JavaScript, MySQL/Postgres, and a solid grasp of Bootstrap fundamentals. Complementing these abilities are my effective communication skills and leadership capabilities, enhancing my professional repertoire</p>
-        </div>
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
 
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/Profile3.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Q A Engineer &amp; Web Developer.</h3>
-            <p class="fst-italic">
-                Vinanth, a QA Engineer I live in Bangalore, India, I have 2+ years of experience in IT sector.
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>23 Dec 1996</span></li>
-                  <!--...<li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>-->
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+91 94816 94552</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Bangaluru, India</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>27</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor's</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>vinanthbs@gmail.com</span></li>
-                  <!--<li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li></li>-->
-                </ul>
-              </div>
-            </div>
-            <p>
-              I've driven the development of a dynamic backend infrastructure using JavaScript, MySQL/MongoDB, and 
-              Bootstrap, enhancing web application efficiency. Additionally, I've led QA strategy implementations, 
-              elevating product quality and reducing bugs. I've coordinated teams effectively, ensuring on-time 
-              project delivery and client satisfaction. Furthermore, I've fostered a culture of continuous learning, 
-              sharing insights to contribute to organizational growth
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+        // Intersection Observer for scroll reveal animations
+        const revealElements = document.querySelectorAll('.scroll-reveal');
 
-    <section id="facts" class="facts">
-      <div class="container">
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
 
-        <div class="section-title">
-          <h2>Facts</h2>
-          <p>
-            My portfolio reflects my dedication to delivering exceptional results and ensuring client satisfaction, 
-            as evidenced by the delighted feedback from satisfied clients. Freelancing has granted me the opportunity to 
-            collaborate with a wide range of individuals and businesses. Currently, I'm enthusiastically involved in 
-            two new projects, where I aim to apply my expertise across multiple endeavors simultaneously. With a commitment to 
-            transparent communication and prompt issue resolution, I prioritize providing ample support hours, ensuring a smooth 
-            and hassle-free experience for my clients throughout each project.
-          </p>
-        </div>
+        revealElements.forEach(el => observer.observe(el));
 
-        <div class="row no-gutters">
+        // Update active nav on scroll
+        window.addEventListener('scroll', updateActiveNav);
 
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Happy Clients</strong> Freelancing clients</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="count-box">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects</strong> open to work for multiple projects</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="count-box">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="153" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hours Of Support</strong> Very well versed with clients</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="skills" class="skills section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Skills</h2>
-          <p>I have got opportunity to explore all the technologies, with the avilable resources i have gained knowledge on below mentioned skills</p>
-        </div>
-
-        <div class="row skills-content">
-
-          <div class="col-lg-6" data-aos="fade-up">
-
-            <div class="progress" >
-              <!--div style="display: flex; align-items: center;"-->
-              <!--img src="./assets/mongodb_original_logo_icon_146424.png" alt="LOGO" style="width: 30px; height: 30px; margin-right: 10px;"-->
-              <span class="skill" >MongoDb <i class="val">80%</i></span>
-              <div class="progress-bar-wrap" style=" margin-top: 10px;">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Express <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">JavaScript <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="progress">
-              <span class="skill">Node.js <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Bootstrap <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill"> Spring and SpringBoot <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <section id="resume" class="resume">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Resume</h2>
-          <p>Enthusiastic QA Engineer with a strong background in application testing, deployment, and client communication. Passionate about server-side development, seeking a development role to apply and expand my coding skills. Committed to delivering high-quality code and innovative solutions.
-          </p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title">Sumary</h3>
-            <div class="resume-item pb-0">
-              <h4>Vinanth</h4>
-              <p><em>A QA engineer based out of Banglore with 2+ yrs exp at Apprikart Digital Solutions working as lead test, deployment engineer, along with support role.</em></p>
-              <ul>
-                <li>#49, 3rd Main, NGEF layout, Nagarbhavi, Bangaluru 560072, India</li>
-                <li>(+91) 94816-94552</li>
-                <li>vinanthbs@gmail.com.com</li>
-              </ul>
-            </div>
-
-            <h3 class="resume-title">Professional Experience</h3>
-            <div class="resume-item">
-              <h4>QA Engineer</h4>
-              <h5>Apr 2022 - Present</h5>
-              <p><em>Apprikart, Bangaluru, IN</em></p>
-              <ul>
-                <li>My role at Apprikart varies from collecting requirement from client to get it implemented by communicating with developers and to perform UAT and deploy at production enviornment</li>
-                <li>Our team comprises four members, each equipped with a thorough understanding of the entire project while being responsible for specific tasks.</li>
-                <li>Supervise the assessment of all the tasks in order to ensure quality of the product</li>
-                <!-- <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>  -->
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Civil Engineer</h4>
-              <h5>Feb 2021 - Aug 2021</h5>
-              <p><em>SunSeed Technologies, Kenya</em></p>
-              <ul>
-                <li>Was responsible of construction work that took place at block 8 of 50MW Milindi solar plant</li>
-                <li>I was involved in planning, procurment and construction of solar tables, Also worked as pannel installation team lead</li>
-                <li> Got opertunity to work with Kenyans, learn't about Kenyan society norms, cluture and bit of laungauge </li>
-                <!-- <li>Created 4+ design presentations and proposals a month for clients and account managers</li> -->
-              </ul> 
-            </div>
-            <div class="resume-item">
-              <h4>Associate Software developer</h4>
-              <h5>Mar 2020 - Jul 2020</h5>
-              <p><em>Access6 Technology, Bangaluru</em></p>
-              <ul>
-                <li>Contributed in creating CRUD APIs for employee managment system</li>
-                <li>I was provided an opportunity to learn industry standard methodology to create APIs</li>
-                <li>I had pervelage to interacted with front end developers and fecilitated them with APIs</li>
-                <!-- <li>Created 4+ design presentations and proposals a month for clients and account managers</li> -->
-              </ul> 
-            </div>
-          </div>
-            <div class="resume-item">
-              <h4>Bachelor of industrial &amp; Production Engineer</h4>
-              <h5>2014 - 2019</h5>
-              <p><em>PES College of engineering, Mandya, Karnataka</em></p>
-              <p>This degree course has taught me of industrial techniques and tactics followed by top manufactuing gaints and ideas to build new products at today's market trend</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>
-            Feel free to get in touch with me, I am always open to discuss new technologies and opportunities. Allow me to be part of your vision.
-          </p>
-        </div>
-
-        <div class="row" data-aos="fade-in">
-
-          <div class="col-lg-5 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>#49, 3rd Main road, NGEF layout, Nagarbhavi, Banglore - 570062</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>vinanthbs@gmail.com</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+91 94816 94552</p>
-              </div>
-
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d972.0513381102608!2d77.50970366735322!3d12.95870766073345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3f54af7b3f85%3A0x7d0cf84390e948f1!2sNgef%20layout%20park!5e0!3m2!1sen!2sin!4v1716060013953!5m2!1sen!2sin" width="310" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            </div>
-
-          </div>
-
-          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfYRwOlpFV2mtr1-iaUvGT4Mp7IVZ1dVLBKT0rkLGL6WagE5g/viewform?embedded=true" width="680" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Vinanth</span></strong>
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
-        <!--Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>-->
-      </div>
-    </div>
-  </footer><!-- End  Footer -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-
-  <script src="assets/js/main.js"></script>
-
+        // Initialize on page load
+        updateActiveNav();
+    </script>
 </body>
-
 </html>
